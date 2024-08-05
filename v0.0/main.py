@@ -1,3 +1,4 @@
+import sys
 from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtWidgets import (
     QApplication,
@@ -21,49 +22,34 @@ from PyQt6.QtWidgets import (
     QVBoxLayout,
     QWidget,
 )
-
+text0 = 'SukaBlyat'
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
 
         self.setWindowTitle('TobiPizda')
-        #button0 = QPushButton('Button')
-        #button1 = QPushButton('Bitton')
+
         layout = QVBoxLayout()
-        widgets = [
-            QCheckBox,
-            QLCDNumber
-        ]
-        widgets[0].setText
-        #button0 = QPushButton('Button')
-        #button1 = QPushButton('Bitton')
+
+        button0 = QPushButton('Penis')
+        button1 = QPushButton('pizda')
+        text = QLabel(text0)
+
+        button0.clicked.connect(self.button0_perssed)
+        button1.clicked.connect(self.button1_pressed)
+
+        text.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        layout.addWidget(button0)
+        layout.addWidget(button1)
+        layout.addWidget(text)
+
+        central_widget = QWidget()
+        central_widget.setLayout(layout)
+        self.setCentralWidget(central_widget)
         
-        #button0.setCheckable(False)
-        #button0.clicked.connect(self.button0_pressed)
-
-        #self.setCentralWidget(button0)
-        #self.setMenuWidget(button1)
-
-        self.setFixedSize(800, 600)
-
-        #button1.setFixedSize(200,100)
-        #button0.setFixedSize(200,100)
-
-        for w in widgets:
-            layout.addWidget(w())
-        
-        widget = QWidget()
-        widget.setLayout(layout)
-        self.setCentralWidget(widget)
-
-        #text = QDialog()
-        #text.setFixedSize(400, 50)
-        #self.setMenuWidget(text)
-    #def button0_pressed(self, ):
-        #print("Hui_0") 
-
-app = QApplication([])
-window = MainWindow()
-window.show()
-
-app.exec()
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec())
